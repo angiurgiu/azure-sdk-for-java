@@ -13,6 +13,9 @@ public class HelloWorldSample {
      * @param args Input args to the program.
      */
     public static void main(String[] args) {
-        // TODO: write sample to create configuration client and get configs
+       	ConfigurationClient configurationClient = new ConfigurationClientBuilder()
+	        .credential(new DefaultAzureCredentialBuilder().build())
+	        .endpoint(System.getenv("API_LEARN_ENDPOINT"))
+	        .buildClient();
     }
 }
