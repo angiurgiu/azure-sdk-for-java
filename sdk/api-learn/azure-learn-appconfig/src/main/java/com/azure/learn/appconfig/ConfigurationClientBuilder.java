@@ -3,6 +3,16 @@
 
 package com.azure.learn.appconfig;
 
+import com.azure.core.annotation.ServiceClientBuilder;
+import com.azure.core.credential.TokenCredential;
+import com.azure.core.http.HttpClient;
+import com.azure.core.http.HttpPipeline;
+import com.azure.core.http.policy.HttpLogOptions;
+import com.azure.core.http.policy.HttpPipelinePolicy;
+import com.azure.core.util.Configuration;
+import com.azure.core.util.ServiceVersion;
+
+@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
 public final class ConfigurationClientBuilder {
     public ConfigurationClientBuilder credential(TokenCredential credential) {
         // implementation

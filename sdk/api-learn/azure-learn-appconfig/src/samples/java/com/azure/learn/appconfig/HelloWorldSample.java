@@ -3,6 +3,9 @@
 
 package com.azure.learn.appconfig;
 
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.learn.appconfig.models.ConfigurationSetting;
+
 /**
  * A sample for demonstrating App Configuration client library usage.
  */
@@ -17,5 +20,9 @@ public class HelloWorldSample {
 	        .credential(new DefaultAzureCredentialBuilder().build())
 	        .endpoint(System.getenv("API_LEARN_ENDPOINT"))
 	        .buildClient();
+
+        ConfigurationSetting fontColor = configurationClient.getConfigurationSetting("FontColor");
+        ConfigurationSetting greetingText = configurationClient.getConfigurationSetting("GreetingText");
+        System.out.println(fontColor.getValue() + greetingText.getValue());
     }
 }
