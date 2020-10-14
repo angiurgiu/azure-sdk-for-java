@@ -41,22 +41,22 @@ public final class ComputationClient {
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public LinuxComputeNode upsertLinuxComputeNode(String nodeName, LinuxComputeNode computeNode) {
+    public LinuxComputeNode createLinuxComputeNode(String nodeName, LinuxComputeNode computeNode) {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Response<LinuxComputeNode> upsertLinuxComputeNodeWithResponse(String nodeName, LinuxComputeNode computeNode, boolean ifUnchanged, Context context) {
+    public Response<LinuxComputeNode> createLinuxComputeNodeWithResponse(String nodeName, LinuxComputeNode computeNode, boolean ifNotExists, Context context) {
        throw new UnsupportedOperationException("not yet implemented");
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public WindowsComputeNode upsertWindowsComputeNode(String nodeName, WindowsComputeNode computeNode) {
+    public WindowsComputeNode createWindowsComputeNode(String nodeName, WindowsComputeNode computeNode) {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Response<WindowsComputeNode> upsertWindowsComputeNodeWithResponse(String nodeName, WindowsComputeNode computeNode, boolean ifUnchanged, Context context) {
+    public Response<WindowsComputeNode> createWindowsComputeNodeWithResponse(String nodeName, WindowsComputeNode computeNode, boolean ifNotExists, Context context) {
        throw new UnsupportedOperationException("not yet implemented");
     }
 

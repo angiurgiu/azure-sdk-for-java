@@ -19,10 +19,16 @@ context-client-method-parameter: true
 artifact-id: azure-learn-computation
 credential-types: tokencredential
 custom-types-subpackage: models
-custom-types: ComputeNode,ComputeOperation,ComputeOperationStatus,Error,ErrorException,LinuxComputeNode,WindowsComputeNode
+custom-types: ComputeNode,ComputeOperation,ComputeOperationStatus,ComputeError,ComputeErrorException,LinuxComputeNode,WindowsComputeNode
 required-fields-as-ctor-args: true
 directive:
     - rename-model:
         from: Operation
         to: ComputeOperation
+    - rename-model:
+        from: Error
+        to: ComputeError
+    - rename-model:
+        from: ErrorException
+        to: ComputeErrorException
 ```

@@ -23,8 +23,8 @@ import com.azure.core.http.rest.Response;
 import com.azure.core.http.rest.RestProxy;
 import com.azure.core.util.Context;
 import com.azure.learn.computation.implementation.models.PageOfComputeNodes;
+import com.azure.learn.computation.models.ComputeErrorException;
 import com.azure.learn.computation.models.ComputeNode;
-import com.azure.learn.computation.models.ErrorException;
 import reactor.core.publisher.Mono;
 
 /** An instance of this class provides access to all the operations defined in ComputeNodeAdministrations. */
@@ -59,7 +59,7 @@ public final class ComputeNodeAdministrationsImpl {
     private interface ComputeNodeAdministrationsService {
         @Get("/ComputeNodes")
         @ExpectedResponses({200})
-        @UnexpectedResponseExceptionType(ErrorException.class)
+        @UnexpectedResponseExceptionType(ComputeErrorException.class)
         Mono<Response<PageOfComputeNodes>> list(
                 @HostParam("$host") String host,
                 @HeaderParam("x-ms-client-request-id") String xMsClientRequestId,
@@ -67,7 +67,7 @@ public final class ComputeNodeAdministrationsImpl {
 
         @Put("/ComputeNodes/{nodeName}")
         @ExpectedResponses({200, 201})
-        @UnexpectedResponseExceptionType(ErrorException.class)
+        @UnexpectedResponseExceptionType(ComputeErrorException.class)
         Mono<Response<ComputeNode>> create(
                 @HostParam("$host") String host,
                 @HeaderParam("x-ms-client-request-id") String xMsClientRequestId,
@@ -87,7 +87,7 @@ public final class ComputeNodeAdministrationsImpl {
 
         @Get("{nextLink}")
         @ExpectedResponses({200})
-        @UnexpectedResponseExceptionType(ErrorException.class)
+        @UnexpectedResponseExceptionType(ComputeErrorException.class)
         Mono<Response<PageOfComputeNodes>> listNext(
                 @PathParam(value = "nextLink", encoded = true) String nextLink,
                 @HostParam("$host") String host,
@@ -98,7 +98,7 @@ public final class ComputeNodeAdministrationsImpl {
     /**
      * @param context The context to associate with this operation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
-     * @throws ErrorException thrown if the request is rejected by server.
+     * @throws ComputeErrorException thrown if the request is rejected by server.
      * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
      * @return the response.
      */
@@ -122,7 +122,7 @@ public final class ComputeNodeAdministrationsImpl {
      * @param computeNode The computeNode parameter.
      * @param context The context to associate with this operation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
-     * @throws ErrorException thrown if the request is rejected by server.
+     * @throws ComputeErrorException thrown if the request is rejected by server.
      * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
      * @return the response.
      */
@@ -152,7 +152,7 @@ public final class ComputeNodeAdministrationsImpl {
      * @param nextLink The nextLink parameter.
      * @param context The context to associate with this operation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
-     * @throws ErrorException thrown if the request is rejected by server.
+     * @throws ComputeErrorException thrown if the request is rejected by server.
      * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
      * @return the response.
      */

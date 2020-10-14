@@ -7,9 +7,9 @@ package com.azure.learn.computation.models;
 import com.azure.core.annotation.Fluent;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** The Error model. */
+/** The ComputeError model. */
 @Fluent
-public final class Error {
+public final class ComputeError {
     /*
      * The code property.
      */
@@ -29,9 +29,9 @@ public final class Error {
      * Set the code property: The code property.
      *
      * @param code the code value to set.
-     * @return the Error object itself.
+     * @return the ComputeError object itself.
      */
-    public Error setCode(String code) {
+    public ComputeError setCode(String code) {
         this.code = code;
         return this;
     }

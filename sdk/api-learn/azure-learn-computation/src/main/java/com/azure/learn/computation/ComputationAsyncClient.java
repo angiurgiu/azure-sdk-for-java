@@ -43,22 +43,22 @@ public final class ComputationAsyncClient {
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<LinuxComputeNode> upsertLinuxComputeNode(String nodeName, LinuxComputeNode computeNode) {
+    public Mono<LinuxComputeNode> createLinuxComputeNode(String nodeName, LinuxComputeNode computeNode) {
        return Mono.error(new UnsupportedOperationException("not yet implemented"));
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<Response<LinuxComputeNode>> upsertLinuxComputeNodeWithResponse(String nodeName, LinuxComputeNode computeNode, boolean ifUnchanged) {
+    public Mono<Response<LinuxComputeNode>> createLinuxComputeNodeWithResponse(String nodeName, LinuxComputeNode computeNode, boolean ifNotExists) {
        return Mono.error(new UnsupportedOperationException("not yet implemented"));
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<WindowsComputeNode> upsertWindowsComputeNode(String nodeName, WindowsComputeNode computeNode) {
+    public Mono<WindowsComputeNode> createWindowsComputeNode(String nodeName, WindowsComputeNode computeNode) {
        return Mono.error(new UnsupportedOperationException("not yet implemented"));
     }
 
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<Response<WindowsComputeNode>> upsertWindowsComputeNodeWithResponse(String nodeName, WindowsComputeNode computeNode, boolean ifUnchanged) {
+    public Mono<Response<WindowsComputeNode>> createWindowsComputeNodeWithResponse(String nodeName, WindowsComputeNode computeNode, boolean ifNotExists) {
        return Mono.error(new UnsupportedOperationException("not yet implemented"));
     }
 
