@@ -5,6 +5,8 @@
 package com.azure.learn.computation.implementation.models;
 
 import com.azure.core.annotation.Fluent;
+import com.azure.learn.computation.models.ComputeNode;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
@@ -24,23 +26,22 @@ public final class PageOfComputeNodes {
     private String nextLink;
 
     /**
+     * Creates an instance of PageOfComputeNodes class.
+     *
+     * @param value the value value to set.
+     */
+    @JsonCreator
+    public PageOfComputeNodes(@JsonProperty(value = "value", required = true) List<ComputeNode> value) {
+        this.value = value;
+    }
+
+    /**
      * Get the value property: The compute nodes in this page.
      *
      * @return the value value.
      */
     public List<ComputeNode> getValue() {
         return this.value;
-    }
-
-    /**
-     * Set the value property: The compute nodes in this page.
-     *
-     * @param value the value value to set.
-     * @return the PageOfComputeNodes object itself.
-     */
-    public PageOfComputeNodes setValue(List<ComputeNode> value) {
-        this.value = value;
-        return this;
     }
 
     /**

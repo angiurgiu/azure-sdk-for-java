@@ -32,18 +32,6 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
     /** The proxy service used to perform REST calls. */
     private final ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitService service;
 
-    /** */
-    private final String nodeName;
-
-    /**
-     * Gets.
-     *
-     * @return the nodeName value.
-     */
-    public String getNodeName() {
-        return this.nodeName;
-    }
-
     /** Optional client-provided request id. */
     private final String xMsClientRequestId;
 
@@ -119,18 +107,15 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
     /**
      * Initializes an instance of ExampleComputationServiceForAzureSDKAPIDesignTrainingUnit client.
      *
-     * @param nodeName
      * @param xMsClientRequestId Optional client-provided request id.
      * @param host server parameter.
      */
-    ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl(
-            String nodeName, String xMsClientRequestId, String host) {
+    ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl(String xMsClientRequestId, String host) {
         this(
                 new HttpPipelineBuilder()
                         .policies(new UserAgentPolicy(), new RetryPolicy(), new CookiePolicy())
                         .build(),
                 JacksonAdapter.createDefaultSerializerAdapter(),
-                nodeName,
                 xMsClientRequestId,
                 host);
     }
@@ -139,13 +124,12 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
      * Initializes an instance of ExampleComputationServiceForAzureSDKAPIDesignTrainingUnit client.
      *
      * @param httpPipeline The HTTP pipeline to send requests through.
-     * @param nodeName
      * @param xMsClientRequestId Optional client-provided request id.
      * @param host server parameter.
      */
     ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl(
-            HttpPipeline httpPipeline, String nodeName, String xMsClientRequestId, String host) {
-        this(httpPipeline, JacksonAdapter.createDefaultSerializerAdapter(), nodeName, xMsClientRequestId, host);
+            HttpPipeline httpPipeline, String xMsClientRequestId, String host) {
+        this(httpPipeline, JacksonAdapter.createDefaultSerializerAdapter(), xMsClientRequestId, host);
     }
 
     /**
@@ -153,19 +137,13 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
      *
      * @param httpPipeline The HTTP pipeline to send requests through.
      * @param serializerAdapter The serializer to serialize an object into a string.
-     * @param nodeName
      * @param xMsClientRequestId Optional client-provided request id.
      * @param host server parameter.
      */
     ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl(
-            HttpPipeline httpPipeline,
-            SerializerAdapter serializerAdapter,
-            String nodeName,
-            String xMsClientRequestId,
-            String host) {
+            HttpPipeline httpPipeline, SerializerAdapter serializerAdapter, String xMsClientRequestId, String host) {
         this.httpPipeline = httpPipeline;
         this.serializerAdapter = serializerAdapter;
-        this.nodeName = nodeName;
         this.xMsClientRequestId = xMsClientRequestId;
         this.host = host;
         this.computeNodeAdministrations = new ComputeNodeAdministrationsImpl(this);

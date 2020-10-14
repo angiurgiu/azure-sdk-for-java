@@ -7,9 +7,10 @@ package com.azure.learn.computation.implementation.models;
 import com.azure.core.http.HttpHeaders;
 import com.azure.core.http.HttpRequest;
 import com.azure.core.http.rest.ResponseBase;
+import com.azure.learn.computation.models.ComputeOperation;
 
 /** Contains all response data for the computation operation. */
-public final class ComputationResponse extends ResponseBase<ComputationHeaders, Operation> {
+public final class ComputationResponse extends ResponseBase<ComputationHeaders, ComputeOperation> {
     /**
      * Creates an instance of ComputationResponse.
      *
@@ -20,13 +21,17 @@ public final class ComputationResponse extends ResponseBase<ComputationHeaders, 
      * @param headers the deserialized headers of the HTTP response.
      */
     public ComputationResponse(
-            HttpRequest request, int statusCode, HttpHeaders rawHeaders, Operation value, ComputationHeaders headers) {
+            HttpRequest request,
+            int statusCode,
+            HttpHeaders rawHeaders,
+            ComputeOperation value,
+            ComputationHeaders headers) {
         super(request, statusCode, rawHeaders, value, headers);
     }
 
     /** @return the deserialized response body. */
     @Override
-    public Operation getValue() {
+    public ComputeOperation getValue() {
         return super.getValue();
     }
 }

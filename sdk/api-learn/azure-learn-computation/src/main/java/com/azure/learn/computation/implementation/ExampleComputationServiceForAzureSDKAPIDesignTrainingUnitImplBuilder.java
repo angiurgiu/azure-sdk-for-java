@@ -38,22 +38,6 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
     }
 
     /*
-     *
-     */
-    private String nodeName;
-
-    /**
-     * Sets.
-     *
-     * @param nodeName the nodeName value.
-     * @return the ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImplBuilder.
-     */
-    public ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImplBuilder nodeName(String nodeName) {
-        this.nodeName = nodeName;
-        return this;
-    }
-
-    /*
      * Optional client-provided request id
      */
     private String xMsClientRequestId;
@@ -238,7 +222,7 @@ public final class ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl
         }
         ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl client =
                 new ExampleComputationServiceForAzureSDKAPIDesignTrainingUnitImpl(
-                        pipeline, serializerAdapter, nodeName, xMsClientRequestId, host);
+                        pipeline, serializerAdapter, xMsClientRequestId, host);
         return client;
     }
 

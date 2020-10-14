@@ -22,9 +22,9 @@ import com.azure.core.http.rest.PagedResponseBase;
 import com.azure.core.http.rest.Response;
 import com.azure.core.http.rest.RestProxy;
 import com.azure.core.util.Context;
-import com.azure.learn.computation.implementation.models.ComputeNode;
-import com.azure.learn.computation.implementation.models.ErrorException;
 import com.azure.learn.computation.implementation.models.PageOfComputeNodes;
+import com.azure.learn.computation.models.ComputeNode;
+import com.azure.learn.computation.models.ErrorException;
 import reactor.core.publisher.Mono;
 
 /** An instance of this class provides access to all the operations defined in ComputeNodeAdministrations. */
@@ -117,6 +117,7 @@ public final class ComputeNodeAdministrationsImpl {
     }
 
     /**
+     * @param nodeName The nodeName parameter.
      * @param ifMatch The ifMatch parameter.
      * @param computeNode The computeNode parameter.
      * @param context The context to associate with this operation.
@@ -127,17 +128,13 @@ public final class ComputeNodeAdministrationsImpl {
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
     public Mono<Response<ComputeNode>> createWithResponseAsync(
-            String ifMatch, ComputeNode computeNode, Context context) {
+            String nodeName, String ifMatch, ComputeNode computeNode, Context context) {
         return service.create(
-                this.client.getHost(),
-                this.client.getXMsClientRequestId(),
-                this.client.getNodeName(),
-                ifMatch,
-                computeNode,
-                context);
+                this.client.getHost(), this.client.getXMsClientRequestId(), nodeName, ifMatch, computeNode, context);
     }
 
     /**
+     * @param nodeName The nodeName parameter.
      * @param context The context to associate with this operation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -145,9 +142,8 @@ public final class ComputeNodeAdministrationsImpl {
      * @return the response.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<Response<ComputeNode>> getWithResponseAsync(Context context) {
-        return service.get(
-                this.client.getHost(), this.client.getXMsClientRequestId(), this.client.getNodeName(), context);
+    public Mono<Response<ComputeNode>> getWithResponseAsync(String nodeName, Context context) {
+        return service.get(this.client.getHost(), this.client.getXMsClientRequestId(), nodeName, context);
     }
 
     /**

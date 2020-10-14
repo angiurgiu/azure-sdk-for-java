@@ -59,6 +59,7 @@ public final class ComputationsImpl {
     }
 
     /**
+     * @param nodeName The nodeName parameter.
      * @param precision The precision parameter.
      * @param context The context to associate with this operation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -67,12 +68,9 @@ public final class ComputationsImpl {
      * @return the completion.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    public Mono<ComputationsComputePiResponse> computePiWithResponseAsync(Integer precision, Context context) {
+    public Mono<ComputationsComputePiResponse> computePiWithResponseAsync(
+            String nodeName, Integer precision, Context context) {
         return service.computePi(
-                this.client.getHost(),
-                this.client.getXMsClientRequestId(),
-                this.client.getNodeName(),
-                precision,
-                context);
+                this.client.getHost(), this.client.getXMsClientRequestId(), nodeName, precision, context);
     }
 }
